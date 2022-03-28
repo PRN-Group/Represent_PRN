@@ -1,0 +1,90 @@
+﻿@using FilmX.Data.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="~/imgs/dj.png" />
+            <p>FilmX</p>
+        </div>
+        <div class="search-login-nav">
+            <div class="search-login">
+                <div class="search-tool">
+                    <select name="serch-category" class="search-category">
+                        <option value="Movies">Movies</option>
+                        <option value="Celebrities">Celebrities</option>
+                        <option value="News">News</option>
+                    </select>
+                    <input type="text" class="input-search-key" />
+                    <img class="search-icon" src="~/imgs/searching.png" />
+                </div>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Account" asp-action="Logout" class="logout">
+                        <p>Logout</p>
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="login">
+                        <p>Login</p>
+                    </a>
+                }
+            </div>
+            <div class="nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <p>Home</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <p>Movies</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <p>Celebrities</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <p>Top Movie</p>
+                            </a>
+                        </li>
+                        @*<button><a asp-controller="Admin" asp-action="Index">Manager</a></button>*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function SelectFilm(id) {
+            alert("ok" + id);
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+   
+</body>
+</html>

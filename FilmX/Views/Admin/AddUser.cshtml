@@ -1,0 +1,74 @@
+﻿@model FilmX.Data.Entities.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using FilmX.Data.Entities
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Admin User</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form asp-controller="admin" asp-action="AddUser" method="post">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Full Name <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" asp-for="FullName">
+                        </div>
+                        <div class="form-group">
+                            <label>Gender <span class="text-danger"></span></label><br />
+                            
+                            <input type="radio" asp-for="Gender" value="Male" />Male<br />
+                            <input type="radio" asp-for="Gender" value="Female" />Female<br />
+                        </div>
+                        <div class="form-group">
+                            <label>Role <span class="text-danger"></span></label>
+                            <select  class="form-control" asp-for=RoleId>
+                                     <option value="0">Select</option>
+                                     @foreach (var c in ViewBag.Role)
+                                     {
+                                        <option value="@c.Id">@c.Name</option>
+                                     }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Year Of Birth <span class="text-danger">*</span></label>
+                            <input class="form-control" type="number" asp-for="YearOfBirth">
+                        </div>
+
+                        <div class="form-group">
+                            <label>UserName <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" asp-for="UserName">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" asp-for="Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number<span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" asp-for="PhoneNumber">
+                        </div>
+
+                        
+
+                        <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">
+                                    Add
+                                </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

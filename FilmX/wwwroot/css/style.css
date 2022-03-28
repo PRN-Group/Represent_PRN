@@ -1,0 +1,520 @@
+body {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1500px;
+    background: url("../imgs/bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+    body:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1550px;
+        z-index: -1;
+        background: rgba(0,0,0,.8);
+    }
+
+*:focus {
+    outline: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    left: 60px;
+}
+
+    .logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo p {
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        bottom: 20px;
+        margin-left: 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.container {
+    width: 100%;
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+
+    nav li {
+        margin-left: 30px;
+    }
+
+.nav li {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.search-login-nav {
+    position: relative;
+    right: 80px;
+}
+
+.search-login {
+    height: 50px;
+    color: aliceblue;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.search-tool {
+    display: flex;
+    flex-direction: row;
+    height: 35px;
+}
+
+.search-category {
+    height: 100%;
+    position: relative;
+    width: 160px;
+    border: 1px solid white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-left: 9px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.input-search-key {
+    position: relative;
+    left: -1px;
+    height: 31px;
+    width: 280px;
+    background: transparent;
+    padding-left: 10px;
+    border: 1px solid white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+.search-icon {
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    right: 33px;
+}
+
+.login {
+    text-decoration: none;
+}
+
+.login, p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    bottom: 15px;
+}
+
+.nav button {
+    position: relative;
+    bottom: 5px;
+    width: 90px;
+    height: 35px;
+    margin-left: 30px;
+    border: 0px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, rgb(235, 63, 100), rgb(221, 28, 221));
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.list-film-demo {
+    width: 80%;
+    position: relative;
+    bottom: -20px;
+    margin: auto;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sub-img {
+    height: 280px;
+    width: 180px;
+    transform: rotate(5deg);
+    margin-top: 30px;
+    box-shadow: white 0.2px 0.2px;
+    border: 1px white solid;
+}
+
+.demo-film {
+    height: 340px;
+    width: 600px;
+    display: flex;
+    background-color: #13151f;
+    position: relative;
+    border-radius: 10px;
+    color: rgb(204, 188, 188);
+    box-shadow: white 0.3px 0.3px;
+}
+
+.demo-information {
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.demo-vote-star {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+.demo-vote {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.image-demo {
+    height: 360px;
+    width: 230px;
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: 40px;
+    left: 20px;
+    border: 1px white solid;
+    border-radius: 10px;
+}
+
+.demo-information .viewTrainer {
+    width: 150px;
+    height: 35px;
+    border: 0px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, rgb(235, 63, 100), rgb(221, 28, 221));
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.incomming-film {
+    width: 80%;
+    position: relative;
+    margin: auto;
+    margin-top: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.detail-incomming {
+    height: 460px;
+    width: 230px;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.icomming-view {
+    border: 1px solid white;
+    height: 300px;
+    width: 230px;
+    position: relative;
+    top: -50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.position {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    border: 2px dashed white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 20%;
+    margin-top: 50px;
+}
+
+.one-position {
+    width: 50px;
+    height: 100px;
+    margin: 9px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+    .one-position input[type=checkbox] {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        left: -3.5px;
+        top: -2px;
+    }
+
+.div-id input[type=text] {
+    pointer-events: none;
+    width: 43px;
+    height: 43px;
+    position: relative;
+    top: -6px;
+}
+
+.forms {
+    display: flex;
+    flex-direction: row;
+}
+
+.submit-btn {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 60px;
+    width: 80px;
+    height: 50px;
+}
+
+.container-login {
+    padding: 10px;
+    margin: auto;
+    width: 500px;
+    height: 700px;
+    border: 2px white solid;
+    font-size: 20px;
+    border-radius: 10px;
+    background-image: linear-gradient(#492e1b, #4b0b02)
+}
+
+.container-register {
+    padding: 10px;
+    margin: auto;
+    width: 500px;
+    height: 900px;
+    border: 2px white solid;
+    font-size: 20px;
+    border-radius: 10px;
+    background-image: linear-gradient(#492e1b, #4b0b02)
+}
+
+
+.container-login h1 {
+    margin-left: 180px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logindiv label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: -webkit-linear-gradient(#F1CD4B, #DB5134);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logindiv {
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    color: black;
+}
+
+    .logindiv input {
+        margin: 6px;
+    }
+
+        .logindiv input[type=text] {
+            height: 30px;
+            width: 350px;
+        }
+
+        .logindiv input[type=password] {
+            height: 30px;
+            width: 350px;
+        }
+
+        .logindiv input[type=submit] {
+            height: 50px;
+            width: 80px;
+        }
+
+    .logindiv a {
+        color: white;
+    }
+
+.incm-infor {
+    text-align: center;
+}
+
+.list-showtime {
+    display: inline;
+}
+
+.showtime {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+    .showtime:hover {
+        transform: scale(1.2);
+        background-color: lightcyan;
+    }
+
+.film-choose:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.container {
+    padding: 2px 16px;
+}
+
+.film-detail {
+    width: 850px;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.film-img {
+    width: 320px;
+    height: 540px;
+    border: 4px orange solid;
+    border-radius: 10px;
+}
+
+.film-information {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+}
+
+    .film-information h1 {
+        color: gold;
+    }
+
+    .film-information h3,
+    h4 {
+        color: chocolate;
+    }
+
+.infor-detail {
+    height: 320px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.show-time {
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.show-time-detail {
+    background-color: antiquewhite;
+    width: 100px;
+    height: 38px;
+    border-radius: 5px;
+    margin: 5px;
+    text-decoration:none;
+    padding-left: 5px
+}
+
+.infor-button {
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.button-infor {
+    width: 150px;
+    height: 35px;
+    border: 0px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, rgb(235, 63, 100), rgb(221, 28, 221));
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}

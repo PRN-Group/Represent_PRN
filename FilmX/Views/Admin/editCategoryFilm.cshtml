@@ -1,0 +1,44 @@
+﻿@model FilmX.Data.Entities.FilmCategory
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using FilmX.Data.Entities
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Edit FilmCategory</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form asp-controller="admin" asp-action="editCategoryFilm" method="post">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Name <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text"  asp-for="Name">
+                        </div>
+                        <div class="form-group">
+                            <label>ModifiedOn <span class="text-danger"></span></label>
+                            <input  class="form-control" type="date"asp-for="ModifiedOn"/>
+                        </div>
+                        <div class="form-group">
+                            <label>CreatedOn<span class="text-danger">*</span></label>
+                            <input class="form-control" type="date" asp-for="CreatedOn">
+                        </div>
+                        <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">
+                                    Save
+                                </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,68 @@
+﻿@using FilmX.Data.Entities
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model FilmX.Data.Entities.OrderDetails
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="~/css/checkout.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="mainscreen">
+    
+    <div class="card">
+      <div class="leftside">
+
+        <img style="width: 100%;
+           height: auto;
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;" 
+        src="~/imgs/batman.jpg" class="product"
+          alt="image" />
+      </div>
+      <div class="rightside">
+        <form asp-controller="Checkout" asp-action="UpdateCheckout">
+          <h1>CheckOut</h1>
+          
+          <h1>Total Payment: @ViewBag.order.TotalPrice</h1>
+          <div><br /></div>
+          
+          <p>User Name</p>
+          <input readonly type="text" class="inputbox" name="name" required value="@ViewBag.user.FullName"/>
+          <p>Film Name</p>
+          <input readonly type="text" class="inputbox" name="name" required value="@ViewBag.film.Name"/>
+          <p>Seat Number</p>
+          <input readonly type="text" class="inputbox" name="card_number" id="card_number" value="@ViewBag.listSeat" />
+          <p>Gmail</p>
+          <input readonly type="text" class="inputbox" name="name" required value="@ViewBag.user.Email"/>
+          <p>Card Type</p>
+          <select class="inputbox" name="card_type" id="card_type" required>
+            <option value="">--Select a Card Type--</option>
+            <option value="Visa">Visa</option>
+            
+            <option value="MasterCard">MasterCard</option>
+          </select>
+          <div class="expcvv">
+            <p class="expcvv_text">Date</p>
+            <input readonly type="text" class="inputbox" name="exp_date" id="exp_date" required value="@ViewBag.showTime.TimeShow.ToString("dd/M/yyyy")"/>
+
+            <p class="expcvv_text2">Time</p>
+            <input readonly type="text" class="inputbox" name="cvv" id="cvv" required value="@ViewBag.showTime.TimeShow.ToString("HH:mm")"/>
+          </div>
+         
+          <input type="hidden" value="@ViewBag.order.Id" name="Id" >
+          <input />
+          <button type="submit" class="button">CheckOut</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

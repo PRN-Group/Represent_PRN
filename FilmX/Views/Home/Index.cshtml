@@ -1,0 +1,64 @@
+﻿@model List<FilmX.Data.Entities.Film>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="margin:0px 800px;color:red">Available Movie</h1>
+<div class="list-film-demo">
+    @for (int i = 0; i < 5; i++)
+    {
+        if (i == 2)
+        {
+            <div class="demo-film">
+                @{
+                    if (ViewBag.ListFilms.Count > 0)
+                    {
+                        <img class="image-demo" src="~/imgs/@ViewBag.ListFilms[i].ImagePath" />
+                        <div class="demo-information">
+                            <a asp-controller="home" asp-action="filmdetail" asp-route-id="@ViewBag.ListFilms[i].Id"><h2 class="demo-infor-title"> @ViewBag.ListFilms[i].Name</h2></a>
+                            <div class="demo-vote">
+                                <div class="number-star">
+                                    @for (int j = 0; j < ViewBag.ListFilms[i].NumberOfVote; j++)
+                                    {
+                                         <img src="~/imgs/star.png" class="demo-vote-star" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="demo-desc">
+                                <p>Country: @ViewBag.ListFilms[i].Country</p>
+                                <p>Directors: @ViewBag.ListFilms[i].Directors</p>
+                                <p>Producer: @ViewBag.ListFilms[i].Producer</p>
+                            </div>
+                            <button class="viewTrainer"><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">View Trailer</a></button>
+                            <button class="viewTrainer"><a class="film-choose" onclick="window.location = '@Url.Action("Detail","Booking", new { id = @ViewBag.ListFilms[i].Id})'">Buy</a></button>
+                        </div>
+                    }
+                }
+            </div>
+
+        }
+        else
+        {
+            <a onclick="window.location = '@Url.Action("SelectFilm","Home", new { id = ViewBag.ListFilms[i].Id})'"><img src="~/imgs/@ViewBag.ListFilms[i].ImagePath" class="sub-img" /></a>
+        }
+    }
+</div>
+
+<h1 style="margin:50px 800px;color:red">Incoming Movie</h1>
+<div style="margin-bottom: 100px" class="incomming-film">
+    @if (ViewBag.Incomming.Count > 0)
+    {
+        @foreach (var item in ViewBag.Incomming)
+        {
+            <div class="detail-incomming">
+                <a class="film-choose" onclick="window.location = '@Url.Action("Detail","Booking", new { id = item.Id})'"><img src="~/imgs/@item.ImagePath" class="icomming-view" /></a>
+                <div class="incm-infor">
+                    <p>Film: @item.Name</p>
+                    <p>Public Date: @item.PublicDate.ToString("MMMM/dd/yyyy")</p>
+                    <p>Limit age: @item.LimitAge</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+

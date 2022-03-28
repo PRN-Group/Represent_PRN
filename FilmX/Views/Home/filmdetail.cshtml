@@ -1,0 +1,32 @@
+﻿@model FilmX.Data.Entities.Film
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="film-detail">
+    <img src="~/imgs/@Model.ImagePath" class="film-img" />
+    <div class="film-information">
+        <h1>@Model.Name</h1>
+        <div class="infor-detail">
+            <h3>Producer: @Model.Producer</h3>
+            <h3>Directors: @Model.Directors</h3>
+            <h3>Duration: @Model.Duration</h3>
+            <h3>Country: @Model.Country</h3>
+            <h3>PublicDate: @Model.PublicDate.ToString("MMMM/dd/yyyy")</h3>
+            <h3>Rate:</h3>
+            <div class="demo-vote">
+                <div class="number-star">
+                    @for (int j = 0; j < @Model.NumberOfVote; j++)
+                    {
+                        <img src="~/imgs/star.png" class="demo-vote-star" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="infor-button">
+            <button class="button-infor"><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">View Trailer</a></button>
+            <button class="button-infor"><a class="film-choose" onclick="window.location = '@Url.Action("Detail","Booking", new { id = @Model.Id})'">Buy</a></button>
+        </div>
+    </div>
+</div>

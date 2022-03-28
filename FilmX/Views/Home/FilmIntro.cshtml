@@ -1,0 +1,31 @@
+﻿@model List<FilmX.Data.Entities.Film>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="list-film-demo">
+        <img src="~/imgs/iron.jpg" class="sub-img" />
+        <div class="demo-film">
+            @{
+                <img class="image-demo" src="~/imgs/iron.jpg" />
+                <div class="demo-information">
+                    <h2 class="demo-infor-title">The devil Princess</h2>
+                    <div class="demo-vote">
+                        <div class="number-star">
+                            @for (int i = 0; i < Model[1].NumberOfVote; i++)
+                            {
+                                <img src="star.png" class="demo-vote-star" />
+                            }
+                        </div>
+                    </div>
+                    <div class="demo-desc">
+                        <p>Country: @Model[1].Country</p>
+                        <p>Directors: @Model[1].Directors</p>
+                        <p>Producer: @Model[1].Producer</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <img src="~/imgs/iron.jpg" class="sub-img" />
+    </div> 

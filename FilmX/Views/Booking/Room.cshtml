@@ -1,0 +1,20 @@
+﻿@model SeatModel
+@{
+}
+
+
+<form asp-controller="Booking" asp-action="Booking" method="post" class="forms">
+    <div class="position">
+        @for (int i = 0; i < Model.Seats.Count; i++)
+        {
+        <div class="one-position">
+
+            @Html.CheckBoxFor(a => a.Seats[i].IsEmpty, (!Model.Seats[i].IsEmpty) ?  (object)new {} :  (object)new { @disabled = "disabled" })
+            <div class="div-id">
+                @Html.TextBoxFor(a => a.Seats[i].Id)
+            </div>
+        </div>
+        }
+    </div>
+    <input style="border-radius:5px" type="submit" value="Book" class="submit-btn"/>
+</form>

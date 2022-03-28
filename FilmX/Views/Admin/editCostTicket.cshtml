@@ -1,0 +1,45 @@
+﻿@model FilmX.Data.Entities.CostTicket
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using FilmX.Data.Entities
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Edit Cost Ticket</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form asp-controller="admin" asp-action="editCostTicket" method="post">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Name<span class="text-danger">*</span></label>
+                            <input type="text" id="start-date" asp-for=Name>
+                        </div>
+                        <div class="form-group">
+                            <label>Price<span class="text-danger">*</span></label>
+                            <input type="number" asp-for="Price">
+                        </div>
+                        <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">
+                                    Save
+                                </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //$('#start-date').timepicker({
+    //  'timeFormat':'H:i'
+    // });
+    //let dateInput = document.getElementById("start-date");
+    //dateInput.min = new Date().toISOString().split(".")[0];
+</script>

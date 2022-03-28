@@ -1,0 +1,92 @@
+﻿@model FilmX.Data.Entities.Film
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using FilmX.Data.Entities
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Admin Film</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form asp-controller="admin" asp-action="add" method="post">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Name <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" asp-for="Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Category <span class="text-danger"></span></label>
+                            <select  class="form-control" asp-for=CategoryId>
+                                 <option value="0">Select</option>
+                                 @foreach (var c in ViewBag.Categories)
+                                 {
+                                    <option value="@c.Id">@c.Name</option>
+                                 }
+                            </select>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label>Duration (Minutes)<span class="text-danger">*</span></label>
+                            <input class="form-control" type="number" asp-for="Duration">
+                        </div>
+                        <div class="form-group">
+                            <label>Country <span class="text-danger">*</span></label>
+                            <input  class="form-control" type="text" asp-for="Country"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Producer <span class="text-danger"></span></label>
+                            <input  class="form-control" type="text"asp-for="Producer"/>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Directors <span class="text-danger"></span></label>
+                            <input  class="form-control" type="text"asp-for="Directors"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Status <span class="text-danger"></span></label> <br />
+                            <input type="radio" asp-for="Status" value="true" />Active<br />
+                            <input type="radio" asp-for="Status" value="false" />Deactive<br />
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label>NumOfViews <span class="text-danger"></span></label>
+                            <input  class="form-control" type="number"asp-for="NumOfViews"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Total Vote <span class="text-danger"></span></label>
+                            <input  class="form-control" type="number"asp-for="TotalVote"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Limit Age <span class="text-danger"></span></label>
+                            <input  class="form-control" type="number" asp-for="LimitAge"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Public Date <span class="text-danger"></span></label>
+                            <input  class="form-control" type="date" asp-for="PublicDate"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Image <span class="text-danger"></span></label>
+                            <input  class="form-control" type="file" asp-for="ImagePath"/>
+                        </div>
+                        <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">
+                                    Add
+                                </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

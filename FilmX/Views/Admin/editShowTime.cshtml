@@ -1,0 +1,73 @@
+﻿@model FilmX.Data.Entities.ShowTime
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using FilmX.Data.Entities
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Edit ShowTime</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form asp-controller="admin" asp-action="editShowTime" method="post">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Time<span class="text-danger"></span></label>
+                            <input type="datetime-local" id="start-date" asp-for=TimeShow>
+                        </div>
+                        <div class="form-group">
+                            <label>Film Name <span class="text-danger"></span></label>
+                            <select  class="form-control" asp-for=FilmId>
+                                 @foreach (var c in ViewBag.Films)
+                                 {
+                                    <option value="@c.Id">@c.Name</option>
+                                 }
+                            </select>
+                        </div>
+                       <div class="form-group">
+                            <label>Film Name <span class="text-danger"></span></label>
+                            <select  class="form-control" asp-for=RoomId>
+                                 @foreach (var c in ViewBag.Rooms)
+                                 {
+                                    <option value="@c.Id">@c.Name</option>
+                                 }
+                            </select>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label>Type <span class="text-danger"></span></label>
+                            <select  class="form-control" asp-for=TypeFilm>
+                                 @foreach (var c in ViewBag.TypeFilms)
+                                 {
+                                    <option value="@c.TypeFilm">@c.Name</option>
+                                 }
+                            </select>
+                            
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" value="-1" type="hidden" asp-for="Price">
+                        </div>
+                        <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">
+                                    Add
+                                </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //$('#start-date').timepicker({
+    //  'timeFormat':'H:i'
+    // });
+    //let dateInput = document.getElementById("start-date");
+    //dateInput.min = new Date().toISOString().split(".")[0];
+</script>

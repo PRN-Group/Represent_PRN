@@ -1,0 +1,133 @@
+﻿@model List<FilmX.Data.Entities.User>
+@using FilmX.Data.Entities
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">List User</h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a asp-controller="Admin" asp-action="AddUser" class="btn btn-primary float-right btn-rounded" ><i
+                                class="fa fa-plus"></i>   Add User  </a>
+                    </div>
+                </div>
+                <div class="row filter-row">
+                    
+                    
+                        <form class="col-md-6 col-md-3 row filter-row" asp-controller="Admin" asp-action="UserList" method="post">
+                            <div class="col-md-6 col-md-3">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Full Name</label>
+                                    <input name = "searchName" type="text" class="form-control floating">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                    <button type = "submit" class="btn btn-success btn-block"> Search </button>
+                            </div>
+                        </form>
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table">
+                                <thead>
+                                    <tr>
+                                        <th style="min-width:200px;">Full Name</th>
+                                        <th style="min-width:200px;">UserName</th>
+                                        <th>Gender</th>
+                                        <th>YearOfBirth</th>
+                                        <th class="text-right">Role</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var p in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <h2>@p.FullName</h2>
+                                            </td>
+                                            
+                                            <td>@p.UserName</td>
+                                            <td>@p.Gender</td>
+                                            <td>@p.YearOfBirth.ToString()</td>
+                                            @foreach(var r in @ViewBag.Role)
+                                            {
+                                                if(r.Id == @p.RoleId)
+                                                {
+                                                    <td>@r.Name</td>        
+                                                }
+                                            }
+                                            
+                                            <td>@p.Email</td>
+                                            <td>@p.PhoneNumber</td>
+                                            <td class="text-right">
+                                                <div class="dropdown dropdown-action">
+                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
+                                                        aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a  class="dropdown-item" asp-controller="admin" asp-action="EditUser" asp-route-id="@p.Id">
+                                                            <i class="fa fa-pencil m-r-5"></i>
+                                                        Edit</a>
+                                                       
+                                                        <a class="dropdown-item" data-toggle="modal" data-target="#delete_film" asp-controller="Admin" asp-action="deleteUser" asp-route-id="@p.Id">
+                                                            <i class="fa fa-trash-o m-r-5"></i>
+                                                        Delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <div id="delete_film" class="modal fade delete-modal" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body text-center">
+                        
+                                                        <h3>Are you sure want to delete this Users?</h3>
+                                                        <div class="m-t-20"> 
+                                                            <a asp-controller="admin" asp-action="UserList" asp-route-id="@p.Id" class="btn btn-white" data-dismiss="modal">Close</a>
+                                                            <a asp-controller="admin" asp-action="deleteUser" asp-route-id="@p.Id" class="btn btn-white" >Delete</a>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div>
+                                    }
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+ </div>
+<script>
+    function changeCategory(){
+        document.getElementById("frmCat").submit();
+    }
+</script>
+
+
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/app.js"></script>
